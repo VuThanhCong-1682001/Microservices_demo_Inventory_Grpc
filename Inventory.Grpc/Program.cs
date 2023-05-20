@@ -1,5 +1,7 @@
 using Common.Logging;
 using Inventory.Grpc.Extensions;
+using Inventory.Grpc.Protos;
+using Inventory.Grpc.Services;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Serilog;
 
@@ -27,7 +29,7 @@ try
     // });
 
     // Configure the HTTP request pipeline.
-    // app.MapGrpcService<GreeterService>();
+    app.MapGrpcService<InventoryService>();
     app.MapGet("/",
         () =>
             "Communication with gRPC endpoints must be made through a gRPC client. To learn how to create a client, visit: https://go.microsoft.com/fwlink/?linkid=2086909");
